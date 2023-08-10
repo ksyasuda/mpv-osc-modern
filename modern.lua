@@ -1604,7 +1604,7 @@ function osc_init()
 	ne = new_element('showqueue', 'button')
 	ne.content = function() return '' end
 	ne.eventresponder['mbtn_left_up'] = function()
-		mp.commandv('script-message', 'print_queue')
+		mp.commandv('script-message', 'toggle_youtube_queue')
 	end
 
     -- load layout
