@@ -1168,6 +1168,11 @@ layouts = function ()
 	lo.style = osc_styles.Ctrl3
 	lo.visible = (osc_param.playresx >= 650)
 
+	lo = add_layout('addtoqueue')
+	lo.geometry = { x = osc_geo.w - 187, y = refY - 40, an = 5, w = 24, h = 24 }
+	lo.style = osc_styles.Ctrl3
+	lo.visible = (osc_param.playresx >= 700)
+
     geo = { x = 25, y = refY - 132, an = 1, w = osc_geo.w - 50, h = 48 }
     lo = add_layout('title')
     lo.geometry = geo
@@ -1600,6 +1605,12 @@ function osc_init()
     end
     ne.eventresponder['mbtn_left_up'] =
         function () state.rightTC_trem = not state.rightTC_trem end
+
+	ne = new_element('addtoqueue', 'button')
+	ne.content = function() return '' end
+	ne.eventresponder['mbtn_left_up'] = function()
+		mp.commandv('script-message', 'add_to_youtube_queue')
+	end
 
 	ne = new_element('showqueue', 'button')
 	ne.content = function() return '' end
